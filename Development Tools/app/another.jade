@@ -1,0 +1,9 @@
+extends layout
+block main-content
+  .jumbotron
+    h1 Another Page
+    p I also have the css and the scripts because I use a template engine
+    .row.form-group
+      label.col-lg-3.control-label.text-right Input field:
+      .col-lg-9: input.form-control(type='text', ng-model='text')
+    p.form-control.lead(ng-bind='text')

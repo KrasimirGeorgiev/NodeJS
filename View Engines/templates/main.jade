@@ -1,0 +1,27 @@
+doctype html
+html(lang='en')
+  head
+    title= headTitle
+    link(
+      rel='stylesheet',
+      type='text/css',
+      href='http://bootswatch.com/cyborg/bootstrap.min.css')
+    link(
+      rel='stylesheet',
+      type='text/css',
+      href='../style/footer.css')
+
+  body
+    header: nav.navbar.navbar-inverse: .container-fluid
+      .navbar-header: a.navbar-brand(href=nav.home.url) #{nav.home.text}
+      ul.nav.navbar-nav
+        each link in nav.links
+          li: a(href=link.url) #{link.text}
+
+    section#main-wrapper.container
+
+      block page-content
+
+    footer.footer
+      .container
+        p.text-muted.text-center= footer.body

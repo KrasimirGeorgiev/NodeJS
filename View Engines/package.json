@@ -1,0 +1,16 @@
+{
+  "name": "view-engines",
+  "version": "1.0.0",
+  "description": "homework view engines",
+  "main": "./app/main.js",
+  "scripts": {
+    "start": "node ./app/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "fs-then": "^0.2.0",
+    "jade": "^1.11.0"
+  }
+}

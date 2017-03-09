@@ -1,0 +1,31 @@
+{
+  "name": "dev-tools-hw",
+  "version": "1.0.0",
+  "description": "Telerik Academy Development Tools Homework",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-coffee": "^0.13.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-connect": "^0.11.2",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-csslint": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-jade": "^0.15.0",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-stylus": "^0.22.0",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-css": "^0.5.4",
+    "grunt-include-source": "^0.7.1",
+    "grunt-newer": "^1.1.1",
+    "grunt-processhtml": "^0.3.8",
+    "load-grunt-tasks": "^3.4.0"
+  }
+}

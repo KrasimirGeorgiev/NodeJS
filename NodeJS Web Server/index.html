@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Super Homework</title>
+</head>
+<body ng-app="filesApp" ng-controller="MainController as ctrl">
+<section ng-if="!serverIsStarted">
+    <h3>Start a command prompt and go to the root folder of this project then run 'npm start'.</h3>
+</section>
+<section ng-if="serverIsStarted">
+    <h1>Super File server 5000</h1>
+    <form name="fileForm">
+        <fieldset>
+            <legend>Upload a file</legend>
+            <input type="file" ngf-select ng-model="file" name="file" required/>
+            <input type="submit" value="Submit" ng-click="sendFile(file)">
+        </fieldset>
+    </form>
+    <ul id="files" ng-repeat="link in $storage">
+        <li><a ng-href="{{link.location}}">{{link.location}}</a></li>
+    </ul>
+</section>
+
+<!--Scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
+<script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+<script>
+    (function () {
+        'use strict';
+
+        var BASE_URL = 'http://localhost:4040/';
+
+        angular.module('filesApp', ['ngFileUpload'])
+                .controller('MainController', ['$scope', '$http', 'Upload', function ($scope, $http, Upload) {
+                    $scope.serverIsStarted = false;
+                    $scope.$storage = [];
+
+                    $http.get(BASE_URL + 'running')
+                            .then(function (ok) {
+                                console.log('server is running');
+                                $scope.serverIsStarted = true;
+                            }, function (error) {
+                                if (error.statusCode === 404) {
+                                    console.log('nyama go!?');
+                                    $scope.serverIsStarted = false;
+                                }
+                            });
+
+                    $scope.sendFile = function (file) {
+                        console.log(file);
+                        Upload.http({
+                                    url: BASE_URL + 'files',
+                                    headers: {
+                                    'content-type': file.type,
+                                    'X-Original-Name': file.name
+                                    },
+
+                                    data: file
+                                })
+                                .then(function (response) {
+                                    console.log(response.data);
+                                    $scope.$storage.push(response.data);
+                                }, function (error) {
+                                    console.log(error);
+                                });
+                    };
+
+                }]);
+    }());
+</script>
+</body>
+</html>

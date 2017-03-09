@@ -1,0 +1,7 @@
+extends layout
+block main-content
+  .jumbotron(ng-controller='HomeController as ctrl')
+    h1 Index page here you go!
+    p(ng-bind='messageOfTheDay')
+    a.btn.btn-info.btn-basic(href='/another.html')
+      | Go to another page

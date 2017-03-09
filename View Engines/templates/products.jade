@@ -1,0 +1,11 @@
+extends main
+block page-content
+  h2.text-center= main.heading
+  each item in main.items
+    .panel.panel-primary
+      .panel-heading: h3.panel-title= item.model
+      .panel-body: ul.list-group
+        each value, key in item
+          li.list-group-item: .form-group
+            label.col-md-6= key
+            .col-md-6= value

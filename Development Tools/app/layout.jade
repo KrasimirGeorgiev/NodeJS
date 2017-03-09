@@ -1,0 +1,38 @@
+doctype html
+html(lang='en')
+  head
+    title #{headTitle || 'Bad website'}
+    link(
+    rel='stylesheet',
+    href='http://bootswatch.com/cyborg/bootstrap.min.css'
+    )
+    link(
+    rel='stylesheet',
+    href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css'
+    )
+
+    // Here was a lot of weird comments now it's only me!
+    // build:css styles/style.min.css
+    // include: "type": "css", "files": "<%= dev.css %>"
+    link(href="styles/footer.css", rel="stylesheet", type="text/css")
+    link(href="styles/main.css", rel="stylesheet", type="text/css")
+    // /include
+    // /build
+
+  body(ng-app='demoApp')
+    header: nav.navbar.navbar-inverse: .container-fluid
+      .navbar-header: a.navbar-brand(href='/')
+        | Home
+      ul.nav.navbar-nav
+        each link in [{url: '/page1', text: 'First Page'}, {url:'//another.html', text: 'Another Page'}]
+          li: a(href=link.url) #{link.text}
+    #wrapper.container
+      block main-content
+
+    script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js', type='text/javascript')
+    // build:js scripts/scripts.min.js
+    // include: "type": "js", "files": "<%= dev.scripts %>"
+    script(src="scripts/demoApp.js", type="text/javascript")
+    script(src="scripts/homeController.js", type="text/javascript")
+    // /include
+    // /build

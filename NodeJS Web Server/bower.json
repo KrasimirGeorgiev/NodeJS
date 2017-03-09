@@ -1,0 +1,26 @@
+{
+  "name": "NodeJS Web Server",
+  "authors": [
+    "."
+  ],
+  "description": "homework",
+  "main": "./client/client.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "homework"
+  ],
+  "license": "MIT",
+  "homepage": ".",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ng-file-upload": "~11.0.2"
+  }
+}

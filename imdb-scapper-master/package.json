@@ -1,0 +1,20 @@
+{
+  "name": "scrapper-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm install",
+    "start": "echo `Starting...` && node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "jquery": "^3.1.1",
+    "jsdom": "^9.8.3",
+    "mongoose": "^4.6.8",
+    "request": "2.78.0"
+  }
+}
